@@ -29,4 +29,10 @@ public class HelperBase {
       return false;
     }
   }
+
+  protected void getElement(int number, int num_element) {
+    if (!wd.findElement(By.xpath("//div[@id='content']/form/select["+num_element+"]//option[" + number + "]")).isSelected()) {
+      wd.findElement(By.xpath("//div[@id='content']/form/select["+num_element+"]//option[" + number + "]")).click();
+    }
+  }
 }

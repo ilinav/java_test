@@ -21,12 +21,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("work"),infoMobile.getWork());
     type(By.name("email"),infoEmail.getEmail());
     type(By.name("email2"),infoEmail.getEmail2());
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[" + infoBirchDate.getDay() + "]")).isSelected()) {
-      wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[" + infoBirchDate.getDay() + "]")).click();
-    }
-    if (!wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[" + infoBirchDate.getMonth() + "]")).isSelected()) {
-      wd.findElement(By.xpath("//div[@id='content']/form/select[2]//option[" + infoBirchDate.getMonth() + "]")).click();
-    }
+    getElement(infoBirchDate.getDay(),1);
+    getElement(infoBirchDate.getMonth(),2);
     type(By.name("byear"),infoBirchDate.getYear());
     type(By.name("address2"),secondary.getAddress2());
     type(By.name("phone2"),secondary.getPhone2());
