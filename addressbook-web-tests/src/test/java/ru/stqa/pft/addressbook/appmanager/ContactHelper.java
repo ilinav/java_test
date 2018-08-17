@@ -47,6 +47,14 @@ public class ContactHelper extends HelperBase {
     }
   }
 
+  public void initAddNew() {
+    click(By.linkText("add new"));
+  }
+
+  public void returnToHomePage() {
+    click(By.linkText("home"));
+  }
+
   public void deleteAllSelectedContacts() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
@@ -65,5 +73,16 @@ public class ContactHelper extends HelperBase {
 
   public void deleteSelectedContact() {
     click(By.xpath("//div[@id='content']/form[2]/input[2]"));
+  }
+
+  public void createContact(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+    initAddNew();
+    fillNewAddress(new FioName("Alexey", "Vladimirovich", "Ilyin"), new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"),true);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 }
