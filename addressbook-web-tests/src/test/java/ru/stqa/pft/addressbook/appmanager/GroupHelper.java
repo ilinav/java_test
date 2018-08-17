@@ -20,6 +20,10 @@ public class GroupHelper extends HelperBase {
     type(By.name("group_footer"), groupData.getFooter());
   }
 
+  public void returnToGroupPage() {
+    click(By.linkText("group page"));
+  }
+
   public void initGroupCreations() {
     click(By.name("new"));
   }
@@ -38,5 +42,16 @@ public class GroupHelper extends HelperBase {
 
   public void submitGroupModification() {
     click(By.name("update"));
+  }
+
+  public void createGroup(GroupData group) {
+    initGroupCreations();
+    fillGroupForm(new GroupData("test1", null, null));
+    submitGroupCreations();
+    returnToGroupPage();
+  }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
