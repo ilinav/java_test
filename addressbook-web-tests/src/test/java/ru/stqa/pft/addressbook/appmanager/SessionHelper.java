@@ -2,9 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SessionHelper extends HelperBase{
+public class SessionHelper extends HelperBase {
 
   public SessionHelper(WebDriver wd) {
 
@@ -12,9 +11,8 @@ public class SessionHelper extends HelperBase{
   }
 
   public void login(String usermane, String password) {
-    type(By.name("user"),usermane);
-    type(By.name("pass"),password);
+    type(By.name("user"), usermane);
+    type(By.name("pass"), password);
     click(By.xpath("//form[@id='LoginForm']/input[3]"));
   }
-
 }
