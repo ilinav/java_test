@@ -10,7 +10,6 @@ public class PrimeTests {
     Assert.assertTrue(Primes.isPrimeFast(Integer.MAX_VALUE));
   }
 
-
   @Test(enabled = false)
   public void testPrimesLong() {
     long n = Integer.MAX_VALUE;
