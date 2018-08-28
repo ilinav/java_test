@@ -77,7 +77,7 @@ public class ContactHelper extends HelperBase {
 
   public void createContact(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
     initAddNew();
-    fillNewAddress(new FioName("Alexey", "Vladimirovich", "Ilyin"), new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"),true);
+    fillNewAddress(fioName,infoCompany,infoMobile,infoEmail,infoBirchDate,secondary,creation);
     submitContactCreation();
     returnToHomePage();
   }
