@@ -2,9 +2,13 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -63,8 +67,12 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public void modificationContact() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void modificationContact(int index) {
+    wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]/a/img")).get(index).click();
+  }
+
+  public void selectContact(int index) {
+    wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td/input")).get(index).click();
   }
 
   public void submitContactModification() {
@@ -85,4 +93,17 @@ public class ContactHelper extends HelperBase {
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
-}
+
+  public List<FioName> getContactList() {
+    List<FioName> contacts = new ArrayList<FioName>();
+    List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+    for (WebElement element : elements){
+      String firstname = element.findElement(By.xpath(".//td[3]")).getText();
+      String lastname = element.findElement(By.xpath(".//td[2]")).getText();
+      int id= Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+    FioName contact = new FioName(id, firstname,null,lastname);
+      contacts.add(contact);
+    }
+    return contacts;
+  }
+}//4.5
