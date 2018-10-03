@@ -12,7 +12,6 @@ public class AllContactDeletionTests extends TestBase {
   public void testAllContactDeletion() {
     //удаление всех контактов в addressbook через страницу home с окном подтверждения
     app.goTo().gotoHomePage();
-    List<FioName> before = app.getContactHelper().getContactList();
     app.getContactHelper().selectAllContact();
     app.getContactHelper().deleteAllSelectedContacts();
     app.getContactHelper().submitContactsDeletion();
