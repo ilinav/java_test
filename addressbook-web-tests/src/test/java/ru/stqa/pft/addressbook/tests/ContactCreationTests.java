@@ -5,8 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.*;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 public class ContactCreationTests extends TestBase {
 
@@ -17,16 +16,14 @@ public class ContactCreationTests extends TestBase {
 
   @Test(enabled = true)
   public void testContactCreation() {
-    List<FioName> before = app.contact().list();
+    Set<FioName> before = app.contact().all();
     FioName contact = new FioName().withFirstname("Alexey").withMiddlename("Vladimirovich").withLastname("Ilyin");
     app.contact().create(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"), true);
-    List<FioName> after = app.contact().list();
+    Set<FioName> after = app.contact().all();
     Assert.assertEquals(after.size(), before.size() + 1);
 
+    contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
     before.add(contact);
-    Comparator<? super FioName> byId = (g1, g2) -> Integer.compare(g1.getId(),g2.getId()) ;
-    before.sort(byId);
-    after.sort(byId);
     Assert.assertEquals(before, after);
   }
 }

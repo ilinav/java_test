@@ -7,8 +7,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.*;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -67,20 +68,16 @@ public class ContactHelper extends HelperBase {
     wd.switchTo().alert().accept();
   }
 
-  public void modificationContact(int index) {
-    wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td[8]/a/img")).get(index).click();
+  private void modificationContactById(int id) {
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
   }
 
-  public void selectContact(int index) {
-    wd.findElements(By.xpath("//table[@id='maintable']/tbody/tr/td/input")).get(index).click();
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void submitContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
-  }
-
-  public void deleteSelectedContact() {
-    click(By.xpath("//div[@id='content']/form[2]/input[2]"));
   }
 
   public void create(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
@@ -90,15 +87,15 @@ public class ContactHelper extends HelperBase {
     returnToHomePage();
   }
 
-  public void modify(int index, FioName contact) {
-    modificationContact(index);
+  public void modify(FioName contact) {
+    modificationContactById(contact.getId());
     fillNewAddress(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello",null),false);
     submitContactModification();
     returnToHomePage();
   }
 
-  public void delete(int index) {
-    selectContact(index);
+  public void delete(FioName contact) {
+    selectContactById(contact.getId());
     deleteAllSelectedContacts();
     submitContactsDeletion();
     returnToHomePage();
@@ -108,8 +105,8 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 
-  public List<FioName> list() {
-    List<FioName> contacts = new ArrayList<FioName>();
+  public Set<FioName> all() {
+    Set<FioName> contacts = new HashSet<FioName>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements){
       String firstname = element.findElement(By.xpath(".//td[3]")).getText();
@@ -119,4 +116,5 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
 }
