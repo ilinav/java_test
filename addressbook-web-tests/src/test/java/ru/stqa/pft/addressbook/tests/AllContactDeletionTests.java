@@ -11,12 +11,12 @@ public class AllContactDeletionTests extends TestBase {
   @Test(enabled = false)
   public void testAllContactDeletion() {
     //удаление всех контактов в addressbook через страницу home с окном подтверждения
-    app.goTo().gotoHomePage();
-    app.getContactHelper().selectAllContact();
-    app.getContactHelper().deleteAllSelectedContacts();
-    app.getContactHelper().submitContactsDeletion();
-    app.goTo().gotoHomePage();
-    List<FioName> after = app.getContactHelper().getContactList();
+    app.goTo().homePage();
+    app.contact().selectAllContact();
+    app.contact().deleteAllSelectedContacts();
+    app.contact().submitContactsDeletion();
+    app.goTo().homePage();
+    List<FioName> after = app.contact().list();
     Assert.assertEquals(after.size(), 0);
   }
 }

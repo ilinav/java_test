@@ -83,10 +83,24 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[2]/input[2]"));
   }
 
-  public void createContact(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+  public void create(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
     initAddNew();
     fillNewAddress(fioName,infoCompany,infoMobile,infoEmail,infoBirchDate,secondary,creation);
     submitContactCreation();
+    returnToHomePage();
+  }
+
+  public void modify(int index, FioName contact) {
+    modificationContact(index);
+    fillNewAddress(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello",null),false);
+    submitContactModification();
+    returnToHomePage();
+  }
+
+  public void delete(int index) {
+    selectContact(index);
+    deleteAllSelectedContacts();
+    submitContactsDeletion();
     returnToHomePage();
   }
 
@@ -94,16 +108,15 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 
-  public List<FioName> getContactList() {
+  public List<FioName> list() {
     List<FioName> contacts = new ArrayList<FioName>();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements){
       String firstname = element.findElement(By.xpath(".//td[3]")).getText();
       String lastname = element.findElement(By.xpath(".//td[2]")).getText();
-      int id= Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-    FioName contact = new FioName(id, firstname,null,lastname);
-      contacts.add(contact);
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      contacts.add(new FioName().withId(id).withFirstname(firstname).withLastname(lastname));
     }
     return contacts;
   }
-}//4.5
+}

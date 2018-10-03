@@ -3,31 +3,33 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class FioName {
-  private int id;
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String middlename;
+  private String lastname;
 
   public int getId() {
     return id;
   }
 
-  public FioName(int id, String firstname, String middlename, String lastname) {
+  public FioName withId(int id) {
     this.id = id;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
+    return this;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public FioName withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
   }
 
-  public FioName(String firstname, String middlename, String lastname) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
+  public FioName withMiddlename(String middlename) {
     this.middlename = middlename;
+    return this;
+  }
+
+  public FioName withLastname(String lastname) {
     this.lastname = lastname;
+    return this;
   }
 
   public String getFirstname() {
