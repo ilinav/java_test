@@ -2,7 +2,7 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.model.FioName;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Set;
 
@@ -16,7 +16,7 @@ public class AllContactDeletionTests extends TestBase {
     app.contact().deleteAllSelectedContacts();
     app.contact().submitContactsDeletion();
     app.goTo().homePage();
-    Set<FioName> after = app.contact().all();
+    Set<ContactData> after = app.contact().all();
     Assert.assertEquals(after.size(), 0);
   }
 }

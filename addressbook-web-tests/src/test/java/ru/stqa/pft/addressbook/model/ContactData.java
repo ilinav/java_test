@@ -2,7 +2,7 @@ package ru.stqa.pft.addressbook.model;
 
 import java.util.Objects;
 
-public class FioName {
+public class ContactData {
   private int id = Integer.MAX_VALUE;
   private String firstname;
   private String middlename;
@@ -12,22 +12,22 @@ public class FioName {
     return id;
   }
 
-  public FioName withId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
     return this;
   }
 
-  public FioName withFirstname(String firstname) {
+  public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
   }
 
-  public FioName withMiddlename(String middlename) {
+  public ContactData withMiddlename(String middlename) {
     this.middlename = middlename;
     return this;
   }
 
-  public FioName withLastname(String lastname) {
+  public ContactData withLastname(String lastname) {
     this.lastname = lastname;
     return this;
   }
@@ -46,7 +46,7 @@ public class FioName {
 
   @Override
   public String toString() {
-    return "FioName{" +
+    return "ContactData{" +
             "id='" + id + '\'' +
             ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
@@ -57,10 +57,10 @@ public class FioName {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    FioName fioName = (FioName) o;
-    return id == fioName.id &&
-            Objects.equals(firstname, fioName.firstname) &&
-            Objects.equals(lastname, fioName.lastname);
+    ContactData contactData = (ContactData) o;
+    return id == contactData.id &&
+            Objects.equals(firstname, contactData.firstname) &&
+            Objects.equals(lastname, contactData.lastname);
   }
 
   @Override

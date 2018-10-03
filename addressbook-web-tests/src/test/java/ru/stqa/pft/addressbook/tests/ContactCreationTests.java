@@ -17,7 +17,7 @@ public class ContactCreationTests extends TestBase {
   @Test(enabled = true)
   public void testContactCreation() {
     Contacts before = app.contact().all();
-    FioName contact = new FioName().withFirstname("Alexey").withMiddlename("Vladimirovich").withLastname("Ilyin");
+    ContactData contact = new ContactData().withFirstname("Alexey").withMiddlename("Vladimirovich").withLastname("Ilyin");
     app.contact().create(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"), true);
     Contacts after = app.contact().all();
 

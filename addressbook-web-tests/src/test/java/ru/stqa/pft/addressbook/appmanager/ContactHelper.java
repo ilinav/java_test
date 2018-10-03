@@ -15,10 +15,10 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void fillNewAddress(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
-    type(By.name("firstname"), fioName.getFirstname());
-    type(By.name("middlename"), fioName.getMiddlename());
-    type(By.name("lastname"), fioName.getLastname());
+  public void fillNewAddress(ContactData contactData, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
     type(By.name("company"), infoCompany.getCompany());
     type(By.name("address"), infoCompany.getAddresscompany());
     type(By.name("home"), infoMobile.getHome());
@@ -78,24 +78,27 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
-  public void create(FioName fioName, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+  public void create(ContactData contactData, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
     initAddNew();
-    fillNewAddress(fioName,infoCompany,infoMobile,infoEmail,infoBirchDate,secondary,creation);
+    fillNewAddress(contactData,infoCompany,infoMobile,infoEmail,infoBirchDate,secondary,creation);
     submitContactCreation();
+    contactCache = null;
     returnToHomePage();
   }
 
-  public void modify(FioName contact) {
+  public void modify(ContactData contact) {
     modificationContactById(contact.getId());
     fillNewAddress(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello",null),false);
     submitContactModification();
+    contactCache = null;
     returnToHomePage();
   }
 
-  public void delete(FioName contact) {
+  public void delete(ContactData contact) {
     selectContactById(contact.getId());
     deleteAllSelectedContacts();
     submitContactsDeletion();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -103,15 +106,20 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
   }
 
+  private Contacts contactCache = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCache != null){
+      return new Contacts(contactCache);
+    }
+    contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
     for (WebElement element : elements){
       String firstname = element.findElement(By.xpath(".//td[3]")).getText();
       String lastname = element.findElement(By.xpath(".//td[2]")).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      contacts.add(new FioName().withId(id).withFirstname(firstname).withLastname(lastname));
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 }
