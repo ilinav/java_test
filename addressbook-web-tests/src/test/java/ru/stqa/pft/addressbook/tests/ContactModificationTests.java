@@ -14,7 +14,7 @@ public class ContactModificationTests extends TestBase{
     app.goTo().homePage();
     if (app.contact().all().size() == 0){
       app.contact().create(new ContactData()
-              .withFirstname("Alexey").withMiddlename("Vladimirovich").withLastname("Ilyin"), new InfoCompany("iDSystems", "Tver"), new InfoMobile("322322", "89157237246", "88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"),true);
+              .withFirstname("Alexey").withMiddlename("Vladimirovich").withLastname("Ilyin"), new InfoCompany("iDSystems", "Tver"), new InfoMobile().withHome("322322").withMobile("89157237246").withWork("88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", "test1"),true);
     }
   }
 
