@@ -11,9 +11,10 @@ public class ContactData {
   private int month;
   private String year;
   private String company;
-  private String addresscompany;
+  private String address;
   private String email;
   private String email2;
+  private String email3;
   private String home;
   private String mobile;
   private String work;
@@ -21,6 +22,26 @@ public class ContactData {
   private String phone2;
   private String notes;
   private String group;
+  private String allPhones;
+  private String allMails;
+
+  public String getAllMails() {
+    return allMails;
+  }
+
+  public ContactData withAllMails(String allMails) {
+    this.allMails = allMails;
+    return this;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
 
   public ContactData withId(int id) {
     this.id = id;
@@ -62,8 +83,8 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withAddresscompany(String addresscompany) {
-    this.addresscompany = addresscompany;
+  public ContactData withAddress(String address) {
+    this.address = address;
     return this;
   }
 
@@ -74,6 +95,11 @@ public class ContactData {
 
   public ContactData withEmail2(String email2) {
     this.email2 = email2;
+    return this;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
     return this;
   }
 
@@ -150,12 +176,16 @@ public class ContactData {
     return email2;
   }
 
+  public String getEmail3() {
+    return email3;
+  }
+
   public String getCompany() {
     return company;
   }
 
-  public String getAddresscompany() {
-    return addresscompany;
+  public String getAddress() {
+    return address;
   }
 
   public int getDay() {
