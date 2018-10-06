@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class AllContactDeletionTests extends TestBase {
 
-  @Test(enabled = true)
+  @Test(enabled = false)
   public void testAllContactDeletion() {
     //удаление всех контактов в addressbook через страницу home с окном подтверждения
     app.goTo().homePage();
