@@ -1,0 +1,102 @@
+<list>
+  <contact>
+    <firstname>Alexey 0</firstname>
+    <middlename>Vladimirovich 0</middlename>
+    <lastname>Ilyin 0</lastname>
+    <day>3</day>
+    <month>2</month>
+    <year>1990</year>
+    <company>iDSystems 0</company>
+    <address>Tver 0</address>
+    <email>a.ilyin0@id-sys.ru</email>
+    <email2>support0@id-sys.ru</email2>
+    <home>3223220</home>
+    <mobile>891572372460</mobile>
+    <work>880010023200</work>
+    <address2>Tver 0</address2>
+    <phone2>Tver0</phone2>
+    <notes>Hello 0</notes>
+    <group>test 0</group>
+    <photo>src\test\resources\6.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>Alexey 1</firstname>
+    <middlename>Vladimirovich 1</middlename>
+    <lastname>Ilyin 1</lastname>
+    <day>4</day>
+    <month>3</month>
+    <year>1991</year>
+    <company>iDSystems 1</company>
+    <address>Tver 1</address>
+    <email>a.ilyin1@id-sys.ru</email>
+    <email2>support1@id-sys.ru</email2>
+    <home>3223221</home>
+    <mobile>891572372461</mobile>
+    <work>880010023201</work>
+    <address2>Tver 1</address2>
+    <phone2>Tver1</phone2>
+    <notes>Hello 1</notes>
+    <group>test 1</group>
+    <photo>src\test\resources\6.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>Alexey 2</firstname>
+    <middlename>Vladimirovich 2</middlename>
+    <lastname>Ilyin 2</lastname>
+    <day>5</day>
+    <month>4</month>
+    <year>1992</year>
+    <company>iDSystems 2</company>
+    <address>Tver 2</address>
+    <email>a.ilyin2@id-sys.ru</email>
+    <email2>support2@id-sys.ru</email2>
+    <home>3223222</home>
+    <mobile>891572372462</mobile>
+    <work>880010023202</work>
+    <address2>Tver 2</address2>
+    <phone2>Tver2</phone2>
+    <notes>Hello 2</notes>
+    <group>test 2</group>
+    <photo>src\test\resources\6.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>Alexey 3</firstname>
+    <middlename>Vladimirovich 3</middlename>
+    <lastname>Ilyin 3</lastname>
+    <day>6</day>
+    <month>5</month>
+    <year>1993</year>
+    <company>iDSystems 3</company>
+    <address>Tver 3</address>
+    <email>a.ilyin3@id-sys.ru</email>
+    <email2>support3@id-sys.ru</email2>
+    <home>3223223</home>
+    <mobile>891572372463</mobile>
+    <work>880010023203</work>
+    <address2>Tver 3</address2>
+    <phone2>Tver3</phone2>
+    <notes>Hello 3</notes>
+    <group>test 3</group>
+    <photo>src\test\resources\6.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>Alexey 4</firstname>
+    <middlename>Vladimirovich 4</middlename>
+    <lastname>Ilyin 4</lastname>
+    <day>7</day>
+    <month>6</month>
+    <year>1994</year>
+    <company>iDSystems 4</company>
+    <address>Tver 4</address>
+    <email>a.ilyin4@id-sys.ru</email>
+    <email2>support4@id-sys.ru</email2>
+    <home>3223224</home>
+    <mobile>891572372464</mobile>
+    <work>880010023204</work>
+    <address2>Tver 4</address2>
+    <phone2>Tver4</phone2>
+    <notes>Hello 4</notes>
+    <group>test 4</group>
+    <photo>src\test\resources\6.jpg</photo>
+  </contact>
+</list>
