@@ -59,44 +59,4 @@
     <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
   </contact>
-  <contact>
-    <firstname>Alexey 3</firstname>
-    <middlename>Vladimirovich 3</middlename>
-    <lastname>Ilyin 3</lastname>
-    <day>6</day>
-    <month>5</month>
-    <year>1993</year>
-    <company>iDSystems 3</company>
-    <address>Tver 3</address>
-    <email>a.ilyin3@id-sys.ru</email>
-    <email2>support3@id-sys.ru</email2>
-    <home>3223223</home>
-    <mobile>891572372463</mobile>
-    <work>880010023203</work>
-    <address2>Tver 3</address2>
-    <phone2>Tver3</phone2>
-    <notes>Hello 3</notes>
-    <group>test 1</group>
-    <photo>src\test\resources\6.jpg</photo>
-  </contact>
-  <contact>
-    <firstname>Alexey 4</firstname>
-    <middlename>Vladimirovich 4</middlename>
-    <lastname>Ilyin 4</lastname>
-    <day>7</day>
-    <month>6</month>
-    <year>1994</year>
-    <company>iDSystems 4</company>
-    <address>Tver 4</address>
-    <email>a.ilyin4@id-sys.ru</email>
-    <email2>support4@id-sys.ru</email2>
-    <home>3223224</home>
-    <mobile>891572372464</mobile>
-    <work>880010023204</work>
-    <address2>Tver 4</address2>
-    <phone2>Tver4</phone2>
-    <notes>Hello 4</notes>
-    <group>test 1</group>
-    <photo>src\test\resources\6.jpg</photo>
-  </contact>
 </list>
