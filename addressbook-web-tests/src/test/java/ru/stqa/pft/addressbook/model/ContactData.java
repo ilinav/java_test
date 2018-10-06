@@ -47,7 +47,6 @@ public class ContactData {
   private String notes;
   @Expose
   private String group;
-  @Expose
   private File photo;
   private String allPhones;
   private String allMails;

@@ -16,7 +16,7 @@
     <address2>Tver 0</address2>
     <phone2>Tver0</phone2>
     <notes>Hello 0</notes>
-    <group>test 0</group>
+    <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
   </contact>
   <contact>
@@ -56,7 +56,7 @@
     <address2>Tver 2</address2>
     <phone2>Tver2</phone2>
     <notes>Hello 2</notes>
-    <group>test 2</group>
+    <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
   </contact>
   <contact>
@@ -76,7 +76,7 @@
     <address2>Tver 3</address2>
     <phone2>Tver3</phone2>
     <notes>Hello 3</notes>
-    <group>test 3</group>
+    <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
   </contact>
   <contact>
@@ -96,7 +96,7 @@
     <address2>Tver 4</address2>
     <phone2>Tver4</phone2>
     <notes>Hello 4</notes>
-    <group>test 4</group>
+    <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
   </contact>
 </list>

@@ -87,7 +87,7 @@ public class ContactDataGenerator {
               .withLastname(String.format("Ilyin %s", i)).withCompany(String.format("iDSystems %s", i)).withAddress(String.format("Tver %s", i)).withHome(String.format("322322%s", i))
               .withMobile(String.format("89157237246%s", i)).withWork(String.format("88001002320%s", i)).withEmail(String.format("a.ilyin%s@id-sys.ru", i))
               .withEmail2(String.format("support%s@id-sys.ru", i)).withDay(i + 1).withMonth(i + 1).withYear(String.format("199%s", i))
-              .withAddress2(String.format("Tver %s", i)).withPhone2(String.format("Tver%s", i)).withNotes(String.format("Hello %s", i)).withGroup(String.format("test %s", i)).withPhoto(photo));
+              .withAddress2(String.format("Tver %s", i)).withPhone2(String.format("Tver%s", i)).withNotes(String.format("Hello %s", i)).withGroup("test 1").withPhoto(photo));
     }
     return contacts;
   }

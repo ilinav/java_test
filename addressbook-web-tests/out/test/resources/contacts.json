@@ -16,8 +16,7 @@
     "address2": "Tver 0",
     "phone2": "Tver0",
     "notes": "Hello 0",
-    "group": "test 0",
-    "photo": {}
+    "group": "test 1"
   },
   {
     "firstname": "Alexey 1",
@@ -36,8 +35,7 @@
     "address2": "Tver 1",
     "phone2": "Tver1",
     "notes": "Hello 1",
-    "group": "test 1",
-    "photo": {}
+    "group": "test 1"
   },
   {
     "firstname": "Alexey 2",
@@ -56,8 +54,7 @@
     "address2": "Tver 2",
     "phone2": "Tver2",
     "notes": "Hello 2",
-    "group": "test 2",
-    "photo": {}
+    "group": "test 1"
   },
   {
     "firstname": "Alexey 3",
@@ -76,8 +73,7 @@
     "address2": "Tver 3",
     "phone2": "Tver3",
     "notes": "Hello 3",
-    "group": "test 3",
-    "photo": {}
+    "group": "test 1"
   },
   {
     "firstname": "Alexey 4",
@@ -96,7 +92,6 @@
     "address2": "Tver 4",
     "phone2": "Tver4",
     "notes": "Hello 4",
-    "group": "test 4",
-    "photo": {}
+    "group": "test 1"
   }
 ]
