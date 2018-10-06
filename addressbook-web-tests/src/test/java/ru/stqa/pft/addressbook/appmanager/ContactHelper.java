@@ -15,26 +15,26 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void fillNewAddress(ContactData contactData, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+  public void fillNewAddress(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("company"), infoCompany.getCompany());
-    type(By.name("address"), infoCompany.getAddresscompany());
-    type(By.name("home"), infoMobile.getHome());
-    type(By.name("mobile"), infoMobile.getMobile());
-    type(By.name("work"), infoMobile.getWork());
-    type(By.name("email"), infoEmail.getEmail());
-    type(By.name("email2"), infoEmail.getEmail2());
-    getElement(infoBirchDate.getDay(), 1);
-    getElement(infoBirchDate.getMonth(), 2);
-    type(By.name("byear"), infoBirchDate.getYear());
-    type(By.name("address2"), secondary.getAddress2());
-    type(By.name("phone2"), secondary.getPhone2());
-    type(By.name("notes"), secondary.getNotes());
+    type(By.name("company"), contactData.getCompany());
+    type(By.name("address"), contactData.getAddresscompany());
+    type(By.name("home"), contactData.getHome());
+    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("work"), contactData.getWork());
+    type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    getElement(contactData.getDay(), 1);
+    getElement(contactData.getMonth(), 2);
+    type(By.name("byear"), contactData.getYear());
+    type(By.name("address2"), contactData.getAddress2());
+    type(By.name("phone2"), contactData.getPhone2());
+    type(By.name("notes"), contactData.getNotes());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(secondary.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -78,9 +78,9 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
-  public void create(ContactData contactData, InfoCompany infoCompany, InfoMobile infoMobile, InfoEmail infoEmail, InfoBirchDate infoBirchDate, Secondary secondary, boolean creation) {
+  public void create(ContactData contactData, boolean creation) {
     initAddNew();
-    fillNewAddress(contactData, infoCompany, infoMobile, infoEmail, infoBirchDate, secondary, creation);
+    fillNewAddress(contactData, creation);
     submitContactCreation();
     contactCache = null;
     returnToHomePage();
@@ -88,7 +88,7 @@ public class ContactHelper extends HelperBase {
 
   public void modify(ContactData contact) {
     modificationContactById(contact.getId());
-    fillNewAddress(contact, new InfoCompany("iDSystems", "Tver"), new InfoMobile().withHome("322322").withMobile("89157237246").withWork("88001002320"), new InfoEmail("a.ilyin@id-sys.ru", "support@id-sys.ru"), new InfoBirchDate(22, 8, "1990"), new Secondary("Tver", "Tver", "Hello", null), false);
+    fillNewAddress(contact, false);
     submitContactModification();
     contactCache = null;
     returnToHomePage();
@@ -130,14 +130,13 @@ public class ContactHelper extends HelperBase {
 
   public ContactData infoFromEditForm(ContactData contact) {
     modificationContactById(contact.getId());
-    //String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
-    //String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
     wd.navigate().back();
-    return new InfoMobile().withHome(home).withMobile(mobile).withWork(work);
-    //return new ContactData().withId(contact.getId()).withFirstname(firstname)
-    //        .withLastname(lastname).withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    return new ContactData().withId(contact.getId()).withFirstname(firstname)
+           .withLastname(lastname).withHome(home).withMobile(mobile).withWork(work);
   }
 }
