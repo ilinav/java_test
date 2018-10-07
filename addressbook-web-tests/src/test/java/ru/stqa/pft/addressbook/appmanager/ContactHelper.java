@@ -35,7 +35,10 @@ public class ContactHelper extends HelperBase {
     attach(By.name("photo"),contactData.getPhoto());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      if(contactData.getGroups().size() > 0)
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+      new Select(wd.findElement(By.name("new_group")))
+              .selectByVisibleText(contactData.getGroups().iterator().next().getName());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -93,6 +96,37 @@ public class ContactHelper extends HelperBase {
     submitContactModification();
     contactCache = null;
     returnToHomePage();
+  }
+
+  public void contactToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    selectGroupForContact(contact,group);
+    addToGroup();
+  }
+
+  public void contactRemoveGroup(ContactData contact) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
+    selectContactById(contact.getId());
+    removeToGroup();
+  }
+
+  private void removeToGroup() {
+    click(By.name("remove"));
+  }
+
+  private void selectCurrentGroup(GroupData group) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
+  }
+
+  private void addToGroup() {
+    click(By.name("add"));
+  }
+
+  private void selectGroupForContact(ContactData contact,GroupData group) {
+    if(contact.getGroups().size() > 0)
+      Assert.assertTrue(contact.getGroups().size() == 1);
+    new Select(wd.findElement(By.name("to_group")))
+            .selectByVisibleText(group.getName());
   }
 
   public void delete(ContactData contact) {

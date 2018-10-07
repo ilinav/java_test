@@ -23,6 +23,10 @@ public class ContactCreationTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions(){
+    if (app.db().groups().size() == 0){
+      app.goTo().groupPage();
+      app.group().create( new GroupData().withName("test 1").withHeader("test 1").withFooter("test 1"));
+    }
     app.goTo().homePage();
   }
 

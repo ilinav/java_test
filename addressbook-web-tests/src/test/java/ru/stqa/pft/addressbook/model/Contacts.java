@@ -39,4 +39,9 @@ public class Contacts extends ForwardingSet<ContactData> {
     contacts.remove(contact);
     return contacts;
   }
+
+ // public ContactData get(int i) {
+  //  Contacts contacts = new Contacts(this);
+  //  return contacts;
+  //}
 }

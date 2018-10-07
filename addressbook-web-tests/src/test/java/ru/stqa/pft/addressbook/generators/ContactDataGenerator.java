@@ -15,7 +15,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactDataGenerator {
+public class ContactDataGenerator{
 
   @Parameter(names = "-c", description = "Contact count")
   public int count;
@@ -74,7 +74,7 @@ public class ContactDataGenerator {
       for (ContactData contact : contacts) {
         writer.write(String.format("%s;%s;%s\n", contact.getFirstname(), contact.getMiddlename(), contact.getLastname(), contact.getCompany(), contact.getAddress()
                 , contact.getHome(), contact.getMobile(), contact.getWork(), contact.getEmail(), contact.getEmail2(), contact.getEmail3(), contact.getDay(), contact.getMonth()
-                , contact.getYear(), contact.getAddress2(), contact.getPhone2(), contact.getNotes(), contact.getGroup()));
+                , contact.getYear(), contact.getAddress2(), contact.getPhone2(), contact.getNotes()));//, contact.getGroup()));
       }
     }
   }
