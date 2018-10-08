@@ -18,7 +18,7 @@
     <notes>Hello 0</notes>
     <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
-    <groups/>
+    <users/>
   </contact>
   <contact>
     <firstname>Alexey 1</firstname>
@@ -39,7 +39,7 @@
     <notes>Hello 1</notes>
     <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
-    <groups/>
+    <users/>
   </contact>
   <contact>
     <firstname>Alexey 2</firstname>
@@ -60,6 +60,6 @@
     <notes>Hello 2</notes>
     <group>test 1</group>
     <photo>src\test\resources\6.jpg</photo>
-    <groups/>
+    <users/>
   </contact>
 </list>
