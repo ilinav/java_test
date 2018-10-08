@@ -4,6 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.lanwen.verbalregex.VerbalExpression;
+import ru.stqa.pft.mantis.appmanager.HttpSession;
 import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.UserData;
 
@@ -41,7 +42,9 @@ public class ResetPasswordUserTests extends TestBase{
     app.userHelper().finish(confirmationLink, password_new);
 
     //проверка авторизации под новым паролем
-    assertTrue(app.newSession().login(username,password_new));
+    HttpSession session = app.newSession();
+    assertTrue(session.login(username,password_new));
+    assertTrue(session.isLoggedInAs(username));
   }
 
   private String findConfirmationLink(List<MailMessage> mailMessages, String email) {

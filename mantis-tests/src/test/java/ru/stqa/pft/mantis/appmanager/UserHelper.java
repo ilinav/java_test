@@ -50,6 +50,5 @@ public class UserHelper extends HelperBase {
     type(By.name("password"), password);
     type(By.name("password_confirm"), password);
     click(By.cssSelector("span[class='bigger-110']"));
-    Thread.sleep(2000);
   }
 }
