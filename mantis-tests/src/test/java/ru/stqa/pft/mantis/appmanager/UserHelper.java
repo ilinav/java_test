@@ -16,7 +16,7 @@ public class UserHelper extends HelperBase {
             .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(s)));
   }
 
-  public void selectUserFromResetPassword(int id) throws InterruptedException {
+  public void selectUserFromResetPassword(int id){
     startLogin(app.getProperty("web.adminLogin"), app.getProperty("web.adminPassword"));
     goToControl();
     goToManageUser();
@@ -24,7 +24,7 @@ public class UserHelper extends HelperBase {
     resetPassword();
   }
 
-  public void startLogin(String username, String password) throws InterruptedException {
+  public void startLogin(String username, String password){
     wd.get(app.getProperty("web.baseUrl") + "/login_page.php");
     type(By.name("username"), username);
     click(By.cssSelector("input[type='submit']"));
