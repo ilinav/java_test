@@ -1,12 +1,19 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserHelper extends HelperBase {
 
   public UserHelper(ApplicationManager app) {
     super(app);
     this.app = app;
+  }
+
+  private void waitElement(String s) {
+    new WebDriverWait(wd, 10)
+            .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(s)));
   }
 
   public void selectUserFromResetPassword(int id) throws InterruptedException {
@@ -23,18 +30,17 @@ public class UserHelper extends HelperBase {
     click(By.cssSelector("input[type='submit']"));
     type(By.name("password"), password);
     click(By.cssSelector("input[type='submit']"));
-    Thread.sleep(2000);
   }
 
-  public void goToControl() throws InterruptedException {
+  public void goToControl(){
+    waitElement("button[id='menu-toggler']");
     click(By.cssSelector("button[id='menu-toggler']"));
-    Thread.sleep(2000);
+    waitElement("span[class='menu-text']");
     click(By.cssSelector("a[href='/mantisbt-2.17.1/manage_overview_page.php']"));
   }
 
   public void goToManageUser() {
     click(By.cssSelector("a[href='/mantisbt-2.17.1/manage_user_page.php']"));
-
   }
 
   public void goToSelectUser(int id) {
@@ -45,7 +51,7 @@ public class UserHelper extends HelperBase {
     click(By.cssSelector("input[value='Сбросить пароль']"));
   }
 
-  public void finish(String confirmationLink, String password) throws InterruptedException {
+  public void finish(String confirmationLink, String password) {
     wd.get(confirmationLink);
     type(By.name("password"), password);
     type(By.name("password_confirm"), password);
